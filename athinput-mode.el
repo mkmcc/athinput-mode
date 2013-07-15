@@ -114,8 +114,8 @@
   (run-hooks 'athinput-mode-hook))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("athinput\\'"     . athinput-mode) t)
-(add-to-list 'auto-mode-alist '("athinput\\.*\\'" . athinput-mode) t)
+(dolist (pattern '("athinput\\'" "athinput\\.*\\'"))
+  (add-to-list 'auto-mode-alist (cons pattern 'athinput-mode)))
 
 (provide 'athinput-mode)
 
